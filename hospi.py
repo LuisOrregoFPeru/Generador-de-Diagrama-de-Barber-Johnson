@@ -43,7 +43,7 @@ def calcular(row):
         return None
 
 def zona(io, io_min, io_max):
-    if io > 100:   return "Sobreocupación", "🔴", "#a33218"
+    if io > 100:    return "Sobreocupación", "🔴", "#a33218"
     if io > io_max: return f"Alta (>{io_max}%)", "🟡", "#7a4808"
     if io < io_min: return f"Baja (<{io_min}%)", "🟡", "#7a4808"
     return "Zona óptima ✓", "🟢", "#0f6e52"
@@ -299,6 +299,20 @@ with st.sidebar:
 | **IR** | Índice de Rotación | `A ÷ CF` |
         """)
 
+    # ── [AGREGADO] Firma del autor ─────────────────────────────────────────────
+    st.divider()
+    st.markdown("""
+<div style="font-size:11px;line-height:1.7;color:#6a6a64;">
+<span style="font-size:12px;font-weight:600;color:#1a1a18;">
+Luis A. Orrego Ferreyros</span><br>
+DDS, Econ., MCE, MMD, PhD(c), CQRM<br>
+Epidemiólogo y Economista de la Salud<br>
+<span style="font-size:10.5px;opacity:0.8;">
+Dirección de Servicios de Apoyo al<br>
+Diagnóstico y Tratamiento — INEN</span>
+</div>
+""", unsafe_allow_html=True)
+
 # ══════════════════════════════════════════════════════════════════════════════
 # PANEL PRINCIPAL
 # ══════════════════════════════════════════════════════════════════════════════
@@ -344,3 +358,11 @@ with st.expander("📘 Guía de interpretación del diagrama"):
         st.warning("**EM alta + IS ≈ 0**\n\nEstancias prolongadas con alta ocupación. Revisar criterios de alta.")
     with col4:
         st.info("**IS > 3 · Baja ocupación**\n\nCamas frecuentemente libres (%IO < 75%). Valorar cierre temporal.")
+
+# ── [AGREGADO] Pie de página con firma ────────────────────────────────────────
+st.divider()
+st.caption(
+    "© Luis A. Orrego Ferreyros, DDS, Econ., MCE, MMD, PhD(c), CQRM  ·  "
+    "Epidemiólogo y Economista de la Salud  ·  "
+    "Dirección de Servicios de Apoyo al Diagnóstico y Tratamiento — INEN"
+)
